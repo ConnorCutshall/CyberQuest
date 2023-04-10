@@ -50,10 +50,11 @@ GameObject:
   - component: {fileID: 9151905349983070308}
   - component: {fileID: 7939481253858121352}
   - component: {fileID: 4240104968348177168}
-  - component: {fileID: 2728469282947237578}
+  - component: {fileID: 1117115518800918394}
+  - component: {fileID: 8810760454240151139}
   m_Layer: 0
   m_Name: Peasant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +73,7 @@ Transform:
   m_Children:
   - {fileID: 2190951334225744753}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7034937622256640434
 Rigidbody2D:
@@ -200,8 +201,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!61 &2728469282947237578
-BoxCollider2D:
+--- !u!210 &1117115518800918394
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318916328902979532}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
+--- !u!70 &8810760454240151139
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -232,19 +245,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.47}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0534948, y: 0.37945938}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.00090581836, y: -0.44592538}
+  m_Size: {x: 1.0411168, y: 0.37252805}
+  m_Direction: 1
 --- !u!1 &603718919740239745
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,16 @@ public class Peasant : MonoBehaviour
             TakeDamage(maxHealth);
         }
     }
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(Wait(2));
+            this.GetComponent<CapsuleCollider2D>().enabled= false;
+            StartCoroutine(Wait(1));
+            this.GetComponent<CapsuleCollider2D>().enabled = true;
+        }
+    }
     public void TakeDamage(int damage)
     {
         this.health -= damage;
@@ -39,5 +49,9 @@ public class Peasant : MonoBehaviour
     public void StealCastleData(Collision2D collision) 
     {
         collision.gameObject.transform.parent.GetComponent<Castle>().data -= dataDamage;
+    }
+    IEnumerator Wait(int t)
+    {
+        yield return new WaitForSeconds(t);
     }
 }
