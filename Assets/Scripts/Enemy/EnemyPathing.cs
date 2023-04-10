@@ -6,11 +6,11 @@ using UnityEngine;
 public class EnemyPathing : MonoBehaviour
 {
     public GameObject nextNode;
+    public GameObject midNode;
     public GameObject castleNode;
     public Rigidbody2D rigidBody;
     public float minDistToNode;
     public float moveSpeed;
-
 
     private Vector2 dirToNextNode;
     private float sqrDistToNextNode;

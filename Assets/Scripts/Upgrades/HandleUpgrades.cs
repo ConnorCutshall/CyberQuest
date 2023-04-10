@@ -5,12 +5,15 @@ using UnityEngine;
 public class HandleUpgrades : MonoBehaviour
 {
     public bool hasFireWall = true;
+    public bool hasVPN = true;
 
     public GameObject FireWall;
+    public GameObject VPN;
 
     public void Update()
     {
-            HandleFireWall();
+        HandleFireWall();
+        HandleVPN();
 
     }
     public void HandleFireWall() 
@@ -22,6 +25,18 @@ public class HandleUpgrades : MonoBehaviour
         else
         {
             FireWall.SetActive(false);
+        }
+
+    }
+    public void HandleVPN() 
+    {
+        if (hasVPN)
+        {
+            VPN.SetActive(true);
+        }
+        else
+        {
+            VPN.SetActive(false);
         }
     }
 }

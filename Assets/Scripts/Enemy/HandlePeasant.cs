@@ -16,6 +16,11 @@ public class HandlePeasant : MonoBehaviour
     public GameObject southNode;
     public GameObject westNode;
     public GameObject castleNode;
+
+    public GameObject FakeCastleSW;
+    public GameObject FakeCastleSE;
+    public GameObject FakeCastleNE;
+    public GameObject FakeCastleNW;
     public void HandlePeasants()
     {
         //spawn north
