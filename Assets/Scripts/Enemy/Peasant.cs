@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Peasant : MonoBehaviour
 {
     public int maxHealth = 20;
@@ -20,6 +21,10 @@ public class Peasant : MonoBehaviour
         if (collision.gameObject.CompareTag("Castle"))
         {
             StealCastleData(collision);
+            TakeDamage(maxHealth);
+        }
+        if (collision.gameObject.CompareTag("VPN"))
+        {
             TakeDamage(maxHealth);
         }
     }
