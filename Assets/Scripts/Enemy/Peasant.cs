@@ -37,6 +37,13 @@ public class Peasant : MonoBehaviour
             StartCoroutine(Wait(1));
             this.GetComponent<CapsuleCollider2D>().enabled = true;
         }
+        if (collision.gameObject.CompareTag("Ambush Wall"))
+        {
+            StartCoroutine(Wait(2));
+            this.GetComponent<CapsuleCollider2D>().enabled = false;
+            StartCoroutine(Wait(1));
+            this.GetComponent<CapsuleCollider2D>().enabled = true;
+        }
     }
     public void TakeDamage(int damage)
     {
