@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 3024795699772391158}
+  cardinalDirNum: 3
 --- !u!1001 &38222149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7332,6 +7333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 0}
+  cardinalDirNum: 0
 --- !u!1 &221680020
 GameObject:
   m_ObjectHideFlags: 0
@@ -7672,6 +7674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 3024795699772391158}
+  cardinalDirNum: 3
 --- !u!1 &346367884
 GameObject:
   m_ObjectHideFlags: 0
@@ -15096,6 +15099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 0}
+  cardinalDirNum: 0
 --- !u!1 &553649703
 GameObject:
   m_ObjectHideFlags: 0
@@ -15772,6 +15776,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thiefPrefab: {fileID: 1897486577590271236, guid: 2b311e9a0867af548a5f46e52f346f5b, type: 3}
+  Upgrades: {fileID: 1685688680}
+  FakeCastleSW: {fileID: 1458887714}
+  FakeCastleSE: {fileID: 264945893}
+  FakeCastleNE: {fileID: 2060152301}
+  FakeCastleNW: {fileID: 205329307}
+  castleNode: {fileID: 1979646299}
   spawnLocations:
   - {fileID: 32800731}
   - {fileID: 307454472}
@@ -25297,6 +25307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 0}
+  cardinalDirNum: 0
 --- !u!1 &1578933464
 GameObject:
   m_ObjectHideFlags: 0
@@ -25504,6 +25515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 0}
+  cardinalDirNum: 0
 --- !u!1 &1626562984
 GameObject:
   m_ObjectHideFlags: 0
@@ -25640,7 +25652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasFireWall: 0
-  hasVPN: 0
+  hasVPN: 1
   FireWall: {fileID: 467452181}
   VPN: {fileID: 414295131}
 --- !u!4 &1685688682
@@ -29376,6 +29388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toAmbush: {fileID: 0}
+  cardinalDirNum: 0
 --- !u!1 &1914097753
 GameObject:
   m_ObjectHideFlags: 0

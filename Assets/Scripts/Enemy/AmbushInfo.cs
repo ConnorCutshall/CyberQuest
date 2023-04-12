@@ -5,4 +5,5 @@ using UnityEngine;
 public class AmbushInfo : MonoBehaviour
 {
     public GameObject toAmbush;
+    public int cardinalDirNum;
 }

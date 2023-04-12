@@ -19,6 +19,10 @@ public class Thief : MonoBehaviour
             StealData(collision);
             TakeDamage(maxHealth);
         }
+        if (collision.gameObject.CompareTag("VPN"))
+        {
+            TakeDamage(maxHealth);
+        }
     }
     public void TakeDamage(int damage)
     {

@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 20
-  dataDamage: 1
+  dataDamage: 3
 --- !u!1001 &1294209688411256880
 PrefabInstance:
   m_ObjectHideFlags: 0
