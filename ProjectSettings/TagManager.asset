@@ -9,6 +9,7 @@ TagManager:
   - VPN
   - Enemy
   - Ambush Wall
+  - Caravan
   layers:
   - Default
   - TransparentFX

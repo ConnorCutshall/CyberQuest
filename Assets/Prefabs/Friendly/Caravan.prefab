@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4655348918808785312}
   - component: {fileID: 7804802577920648253}
   - component: {fileID: 613595498425367730}
+  - component: {fileID: 76749060708070359}
   m_Layer: 0
   m_Name: Caravan
   m_TagString: Enemy
@@ -40,7 +41,7 @@ Transform:
   - {fileID: 8042410812342005896}
   - {fileID: 6761835861397226310}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4911946698220255087
 Rigidbody2D:
@@ -200,6 +201,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00090581836, y: -0.44592538}
   m_Size: {x: 1.0411168, y: 0.37252805}
   m_Direction: 1
+--- !u!114 &76749060708070359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020190143417019237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d012d76a4055a646836ad32c015556a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 10
 --- !u!1001 &1472807197453694128
 PrefabInstance:
   m_ObjectHideFlags: 0

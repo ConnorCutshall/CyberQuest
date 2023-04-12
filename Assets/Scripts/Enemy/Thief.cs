@@ -7,12 +7,27 @@ public class Thief : MonoBehaviour
     public int maxHealth = 20;
     public int health = 20;
 
-    public int dataDamage = 1;
-    public void StealCastleData(Collision2D collision)
+    public int dataDamage = 3;
+    public void StealData(Collision2D collision)
     {
-        collision.gameObject.transform.parent.GetComponent<Castle>().data -= dataDamage;
+        collision.gameObject.transform.GetComponent<Caravan>().data -= dataDamage;
     }
-    
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Caravan"))
+        {
+            StealData(collision);
+            TakeDamage(maxHealth);
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        this.health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     IEnumerator Wait(int t)
     {
         yield return new WaitForSeconds(t);
