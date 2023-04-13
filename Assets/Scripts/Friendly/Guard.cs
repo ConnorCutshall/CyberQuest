@@ -59,7 +59,8 @@ public class Guard : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Peasant") ||
             collision.gameObject.CompareTag("Thief")||
-            collision.gameObject.CompareTag("Trickster"))
+            collision.gameObject.CompareTag("Trickster") ||
+            collision.gameObject.CompareTag("Imposter"))
         {
             DealDamage(collision);
         }
@@ -68,7 +69,8 @@ public class Guard : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Peasant") ||
             collision.gameObject.CompareTag("Thief") ||
-            collision.gameObject.CompareTag("Trickster"))
+            collision.gameObject.CompareTag("Trickster") ||
+            collision.gameObject.CompareTag("Imposter"))
         {
             DealDamage(collision);
         }
@@ -87,6 +89,9 @@ public class Guard : MonoBehaviour
                 break;
             case "Trickster":
                 collision.gameObject.GetComponent<Trickster>().TakeDamage(damage);
+                break;
+            case "Imposter":
+                collision.gameObject.GetComponent<Imposter>().TakeDamage(damage);
                 break;
         }
         

@@ -25,6 +25,10 @@ public class Imposter : MonoBehaviour
             StealCastleData(collision);
             TakeDamage(maxHealth * 2);
         }
+        if (collision.gameObject.CompareTag("Bridge"))
+        {
+            TakeDamage(maxHealth * 2);
+        }
     }
     public void TakeDamage(int damage)
     {

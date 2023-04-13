@@ -61,7 +61,7 @@ public class HandleUpgrades : MonoBehaviour
     }
     public void HandleTwoFactor() 
     {
-        if (hasEncryption)
+        if (hasTwoFactor)
         {
             TwoFactor.SetActive(true);
         }

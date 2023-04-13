@@ -5264,6 +5264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imposter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16121,6 +16125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imposter (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17286,6 +17294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imposter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18200,7 +18212,7 @@ GameObject:
   - component: {fileID: 844344309}
   m_Layer: 0
   m_Name: Drawbridge
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23795,6 +23807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imposter (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27689,9 +27705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a8f488736a002489fe1590588c679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasPeasant: 0
-  hasThief: 0
-  hasTrickster: 0
+  hasPeasant: 1
+  hasThief: 1
+  hasTrickster: 1
   hasImposter: 1
   peasantHandler: {fileID: 1819815632}
   thiefHandler: {fileID: 596778016}
@@ -29189,10 +29205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7536a49cb36913b4a9fd76aaa66c6cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasFireWall: 0
-  hasVPN: 0
-  hasEncryption: 0
-  hasTwoFactor: 0
+  hasFireWall: 1
+  hasVPN: 1
+  hasEncryption: 1
+  hasTwoFactor: 1
   hasEducation: 1
   FireWall: {fileID: 467452181}
   VPN: {fileID: 414295131}
@@ -32455,6 +32471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imposter (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34675,19 +34695,19 @@ PrefabInstance:
       objectReference: {fileID: 331071273}
     - target: {fileID: 613595498425367730, guid: 990cd28643353c54b8c339d6a0ec9ce5, type: 3}
       propertyPath: m_Size.x
-      value: 3.7293358
+      value: 2.4184043
       objectReference: {fileID: 0}
     - target: {fileID: 613595498425367730, guid: 990cd28643353c54b8c339d6a0ec9ce5, type: 3}
       propertyPath: m_Size.y
-      value: 2.418395
+      value: 2.4184043
       objectReference: {fileID: 0}
     - target: {fileID: 613595498425367730, guid: 990cd28643353c54b8c339d6a0ec9ce5, type: 3}
       propertyPath: m_Offset.x
-      value: 0.38618854
+      value: 0.15402474
       objectReference: {fileID: 0}
     - target: {fileID: 613595498425367730, guid: 990cd28643353c54b8c339d6a0ec9ce5, type: 3}
       propertyPath: m_Offset.y
-      value: -0.023125459
+      value: -0.02312543
       objectReference: {fileID: 0}
     - target: {fileID: 613595498425367730, guid: 990cd28643353c54b8c339d6a0ec9ce5, type: 3}
       propertyPath: m_Direction
@@ -34952,7 +34972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06436e6312a11114bbdab5cac2ffae9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPeasantPerWave: 20
+  numPeasantPerWave: 10
   northSpawn: {x: 5, y: 95}
   eastSpawn: {x: 63, y: 38}
   southSpawn: {x: 5, y: -15}
@@ -35247,6 +35267,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
       propertyPath: m_Name
+      value: Imposter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
       value: Imposter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35598,6 +35622,10 @@ PrefabInstance:
     - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
       propertyPath: m_Name
       value: Imposter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36225,6 +36253,10 @@ PrefabInstance:
     - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
       propertyPath: m_Name
       value: Imposter (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019851962938951937, guid: 6fa3c53d21a02ea459b9ca3262efe5c4, type: 3}
+      propertyPath: m_TagString
+      value: Imposter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

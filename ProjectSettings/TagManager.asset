@@ -15,6 +15,8 @@ TagManager:
   - Bridge
   - Peasant
   - Thief
+  - Imposter
+  - Trickster
   layers:
   - Default
   - TransparentFX
