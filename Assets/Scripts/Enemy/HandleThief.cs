@@ -2,6 +2,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HandleThief : MonoBehaviour
 {
@@ -26,16 +27,19 @@ public class HandleThief : MonoBehaviour
             CurrThief.transform.parent = this.transform;
             if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
             {
-                CurrThief.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(spawnLocations[i].GetComponent<AmbushInfo>().cardinalDirNum);
+                GameObject target = GetRandomCaslte(spawnLocations[i].GetComponent<AmbushInfo>().cardinalDirNum);
+                CurrThief.GetComponent<AIDestinationSetter>().target = target.transform;
+                CurrThief.GetComponent<Thief>().Target = target;
             }
             else
             {
                 CurrThief.GetComponent<AIDestinationSetter>().target = spawnLocations[i].GetComponent<AmbushInfo>().toAmbush.transform;
+                CurrThief.GetComponent<Thief>().Target = spawnLocations[i].GetComponent<AmbushInfo>().toAmbush;
             }
             
         }
     }
-    public Transform GetRandomCaslte(int dirNum)
+    public GameObject GetRandomCaslte(int dirNum)
     {
         int rand;
         switch (dirNum)
@@ -44,48 +48,48 @@ public class HandleThief : MonoBehaviour
                 rand = (int)Random.Range(0, 2);
                 if (rand == 0)
                 {
-                    return FakeCastleNE.transform;
+                    return FakeCastleNE;
                 }
                 if (rand == 1)
                 {
-                    return FakeCastleNW.transform;
+                    return FakeCastleNW;
                 }
                 break;
             case 2:
                 rand = (int)Random.Range(0, 2);
                 if (rand == 0)
                 {
-                    return FakeCastleNE.transform;
+                    return FakeCastleNE;
                 }
                 if (rand == 1)
                 {
-                    return FakeCastleSE.transform;
+                    return FakeCastleSE;
                 }
                 break;
             case 3:
                 rand = (int)Random.Range(0, 2);
                 if (rand == 0)
                 {
-                    return FakeCastleSE.transform;
+                    return FakeCastleSE;
                 }
                 if (rand == 1)
                 {
-                    return FakeCastleSW.transform;
+                    return FakeCastleSW;
                 }
                 break;
             case 4:
                 rand = (int)Random.Range(0, 2);
                 if (rand == 0)
                 {
-                    return FakeCastleSW.transform;
+                    return FakeCastleSW;
                 }
                 if (rand == 1)
                 {
-                    return FakeCastleNW.transform;
+                    return FakeCastleNW;
                 }
                 break;
         }
 
-        return castleNode.transform;
+        return castleNode;
     }
 }

@@ -8,6 +8,16 @@ public class Thief : MonoBehaviour
     public int health = 20;
 
     public int dataDamage = 3;
+    public GameObject Target;
+
+    public void Update()
+    {
+        if (Target == null)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public void StealData(Collision2D collision)
     {
         collision.gameObject.transform.GetComponent<Caravan>().data -= dataDamage;
