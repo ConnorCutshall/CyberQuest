@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HandlePeasant : MonoBehaviour
 {
+    public int numPeasantPerWave = 20;
+
     public Vector2 northSpawn = new Vector2(3, 95);
     public Vector2 eastSpawn = new Vector2(63, 33);
     public Vector2 southSpawn = new Vector2(3, -15);
@@ -27,7 +29,7 @@ public class HandlePeasant : MonoBehaviour
     public void HandlePeasants()
     {
         //spawn north
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < numPeasantPerWave; i++)
         {
             Vector2 spawnPosition = northSpawn + new Vector2(Random.Range(-30.0f, 30.0f), Random.Range(-10.0f, 10.0f));
 
@@ -35,19 +37,13 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.position = spawnPosition;
             CurrPeasant.transform.parent = this.transform;
 
-            if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(1);
-            }
-            else 
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
-            }
-            
+            HandleAltUpgrades(CurrPeasant, 1);
+
+
         }
 
         //spawn east
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < numPeasantPerWave; i++)
         {
             Vector2 spawnPosition = eastSpawn + new Vector2(Random.Range(-10.0f, 10.0f), Random.Range(-30.0f, 30.0f));
 
@@ -55,18 +51,11 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.position = spawnPosition;
             CurrPeasant.transform.parent = this.transform;
 
-            if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(2);
-            }
-            else
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
-            }
+            HandleAltUpgrades(CurrPeasant, 2);
         }
 
         //spawn south
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < numPeasantPerWave; i++)
         {
             Vector2 spawnPosition = southSpawn + new Vector2(Random.Range(-30.0f, 30.0f), Random.Range(-10.0f, 10.0f));
 
@@ -74,18 +63,11 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.position = spawnPosition;
             CurrPeasant.transform.parent = this.transform;
 
-            if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(3);
-            }
-            else
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
-            }
+            HandleAltUpgrades(CurrPeasant, 3);
         }
 
         // spawn west
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < numPeasantPerWave; i++)
         {
             Vector2 spawnPosition = westSpawn + new Vector2(Random.Range(-10.0f, 10.0f), Random.Range(-30.0f, 30.0f));
 
@@ -93,17 +75,25 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.position = spawnPosition;
             CurrPeasant.transform.parent = this.transform;
 
-            if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(4);
-            }
-            else
-            {
-                CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
-            }
+            HandleAltUpgrades(CurrPeasant, 4);
         }
     }
+    public void HandleAltUpgrades(GameObject CurrPeasant, int dirIndex) 
+    {
+        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        {
+            CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(dirIndex);
+        }
+        else
+        {
+            CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
+        }
 
+        if (Upgrades.GetComponent<HandleUpgrades>().hasEducation) 
+        { 
+            Upgrades.GetComponent<HandleUpgrades>().Education.GetComponent<HandleGuard>().enemeyList.Add(CurrPeasant);
+        }
+    }
     public Transform GetRandomCaslte(int dirNum) 
     {
         int rand;

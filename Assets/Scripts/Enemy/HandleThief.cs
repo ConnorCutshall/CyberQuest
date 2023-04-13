@@ -18,13 +18,15 @@ public class HandleThief : MonoBehaviour
 
     public List<GameObject> spawnLocations;
 
-    public void HandleThiefs() 
+    public void HandleThieves() 
     {
         for (int i = 0; i < spawnLocations.Count; i++) 
         {
             GameObject CurrThief = Instantiate(thiefPrefab);
             CurrThief.transform.position = spawnLocations[i].transform.position;
             CurrThief.transform.parent = this.transform;
+
+            //upgrade exceptions
             if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
             {
                 GameObject target = GetRandomCaslte(spawnLocations[i].GetComponent<AmbushInfo>().cardinalDirNum);
@@ -36,7 +38,12 @@ public class HandleThief : MonoBehaviour
                 CurrThief.GetComponent<AIDestinationSetter>().target = spawnLocations[i].GetComponent<AmbushInfo>().toAmbush.transform;
                 CurrThief.GetComponent<Thief>().Target = spawnLocations[i].GetComponent<AmbushInfo>().toAmbush;
             }
-            
+
+            if (Upgrades.GetComponent<HandleUpgrades>().hasEducation)
+            {
+                Upgrades.GetComponent<HandleUpgrades>().Education.GetComponent<HandleGuard>().enemeyList.Add(CurrThief);
+            }
+
         }
     }
     public GameObject GetRandomCaslte(int dirNum)

@@ -7,16 +7,22 @@ public class HandleUpgrades : MonoBehaviour
     public bool hasFireWall = true;
     public bool hasVPN = true;
     public bool hasEncryption = true;
+    public bool hasTwoFactor = true;
+    public bool hasEducation = true;
 
     public GameObject FireWall;
     public GameObject VPN;
     public GameObject Encryption;
+    public GameObject TwoFactor;
+    public GameObject Education;
 
     public void Update()
     {
         HandleFireWall();
         HandleVPN();
         HandleEncyption();
+        HandleTwoFactor();
+        HandleEducation();
 
     }
     public void HandleFireWall() 
@@ -51,6 +57,28 @@ public class HandleUpgrades : MonoBehaviour
         else
         {
             Encryption.SetActive(false);
+        }
+    }
+    public void HandleTwoFactor() 
+    {
+        if (hasEncryption)
+        {
+            TwoFactor.SetActive(true);
+        }
+        else
+        {
+            TwoFactor.SetActive(false);
+        }
+    }
+    public void HandleEducation()
+    {
+        if (hasEducation)
+        {
+            Education.SetActive(true);
+        }
+        else
+        {
+            Education.SetActive(false);
         }
     }
 }

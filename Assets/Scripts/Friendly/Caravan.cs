@@ -8,8 +8,10 @@ public class Caravan : MonoBehaviour
     public int data;
 
     public GameObject Upgrades;
+    public GameObject Attacks;
     public GameObject PassagePoint;
     public GameObject ExitPoint;
+    public GameObject TrickPoint;
     public GameObject CastlePoint;
     public void Start()
     {
@@ -17,14 +19,21 @@ public class Caravan : MonoBehaviour
     }
     public void UpdateTarget() 
     {
+
         if (Upgrades.GetComponent<HandleUpgrades>().hasEncryption)
         {
             this.GetComponent<AIDestinationSetter>().target = PassagePoint.transform;
         }
-        else 
+        else if (Attacks.GetComponent<HandleAttacks>().hasTrickster &&
+                !Upgrades.GetComponent<HandleUpgrades>().hasVPN) 
+        {
+            this.GetComponent<AIDestinationSetter>().target = TrickPoint.transform;
+        }
+        else
         {
             this.GetComponent<AIDestinationSetter>().target = CastlePoint.transform;
         }
+
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,7 +53,10 @@ public class Caravan : MonoBehaviour
         {
             this.transform.position = ExitPoint.transform.position;
             this.GetComponent<AIDestinationSetter>().target = CastlePoint.transform;
-
+        }
+        if (collision.gameObject.CompareTag("Trickster"))
+        {
+            Destroy(this.gameObject);
         }
     }
     public void GiveCastleData(Collision2D collision)

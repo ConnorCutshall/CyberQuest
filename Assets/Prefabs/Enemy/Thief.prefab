@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -5165641847639226912}
   m_Layer: 0
   m_Name: Thief
-  m_TagString: Enemy
+  m_TagString: Thief
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   dataDamage: 3
+  Target: {fileID: 0}
 --- !u!1001 &1294209688411256880
 PrefabInstance:
   m_ObjectHideFlags: 0

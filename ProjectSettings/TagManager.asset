@@ -11,6 +11,10 @@ TagManager:
   - Ambush Wall
   - Caravan
   - Passage
+  - Moat
+  - Bridge
+  - Peasant
+  - Thief
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
+  - Enemy
   - 
   - 
   - 

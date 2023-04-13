@@ -29,6 +29,9 @@ public class Thief : MonoBehaviour
             StealData(collision);
             TakeDamage(maxHealth);
         }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("VPN"))
         {
             TakeDamage(maxHealth);
@@ -36,7 +39,12 @@ public class Thief : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        this.health -= damage;
+        int exactDamage = Random.Range(damage - 3, damage + 3);
+        if (exactDamage <= 0)
+        {
+            exactDamage = 1;
+        }
+        this.health -= exactDamage;
         if (health <= 0)
         {
             Destroy(this.gameObject);
