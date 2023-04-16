@@ -17,6 +17,7 @@ TagManager:
   - Thief
   - Imposter
   - Trickster
+  - ActivateUI
   layers:
   - Default
   - TransparentFX
