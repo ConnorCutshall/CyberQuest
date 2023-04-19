@@ -18,6 +18,7 @@ TagManager:
   - Imposter
   - Trickster
   - ActivateUI
+  - Door
   layers:
   - Default
   - TransparentFX

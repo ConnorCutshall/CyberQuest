@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +11,33 @@ public class SkillNode : MonoBehaviour
     public List<GameObject> lines;
     public SkillNode prevSkill;
 
+    public UpgradeData upgradeData;
+
     public bool canUnlock;
     public bool isUnlocked;
+
+    public TMP_Text level;
+    public NodeType nodeType;
 
     public Button button;
     public Color unlockedColor;
     public Color lockedColor;
 
+    public enum NodeType {VPN, FireWall }
+
     public void Start()
     {
         button = GetComponent<Button>();
+        switch (nodeType)
+        {
+            case NodeType.VPN:
+                level.text = upgradeData.VPNLevel.ToString();
+                break;
+            case NodeType.FireWall:
+                level.text = upgradeData.FireWallLevel.ToString();
+                break;
+        }
+
         pushUpdate();
     }
     public void Update()

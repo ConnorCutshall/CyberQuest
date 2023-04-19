@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745db120945e8cd4c8d78b593c9a86a9, type: 3}
   m_Name: UpgradeData
   m_EditorClassIdentifier: 
-  hasFireWall: 0
+  FireWallLevel: 3
+  VPNLevel: 2

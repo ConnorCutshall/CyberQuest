@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2107828561725795577}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  UI: {fileID: 0}
+  uiEnabled: 0
 --- !u!1001 &2191794004359441144
 PrefabInstance:
   m_ObjectHideFlags: 0
