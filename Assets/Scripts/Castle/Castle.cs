@@ -8,9 +8,16 @@ public class Castle : MonoBehaviour
     public int backups = 2;
 
     public GameObject gameController;
+    public GameStateData gamestate;
+
+    public void Start()
+    {
+        data = gamestate.castleData;
+    }
 
     public void Update()
     {
+        gamestate.castleData= data;
         if (data <= 0) 
         { 
             GameOver();

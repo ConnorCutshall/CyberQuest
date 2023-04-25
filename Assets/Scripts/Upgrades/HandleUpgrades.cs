@@ -4,17 +4,42 @@ using UnityEngine;
 
 public class HandleUpgrades : MonoBehaviour
 {
-    public bool hasFireWall = true;
-    public bool hasVPN = true;
-    public bool hasEncryption = true;
-    public bool hasTwoFactor = true;
-    public bool hasEducation = true;
+    public bool hasFireWall = false;
+    public bool hasVPN = false;
+    public bool hasEncryption = false;
+    public bool hasTwoFactor = false;
+    public bool hasEducation = false;
 
     public GameObject FireWall;
     public GameObject VPN;
     public GameObject Encryption;
     public GameObject TwoFactor;
     public GameObject Education;
+
+    public UpgradeData upgradeData;
+    public void Start()
+    {
+        if (upgradeData.VPNLevel > 0) 
+        {
+            hasVPN = true;
+        }
+        if (upgradeData.EncrytpionLevel > 0)
+        {
+            hasEncryption= true;
+        }
+        if (upgradeData.EducationLevel > 0)
+        {
+            hasEducation= true;
+        }
+        if (upgradeData.FireWallLevel > 0)
+        {
+            hasFireWall= true;
+        }
+        if (upgradeData.TwoFactorLevel > 0)
+        {
+            hasTwoFactor = true;
+        }
+    }
 
     public void Update()
     {

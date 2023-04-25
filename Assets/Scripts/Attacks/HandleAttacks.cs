@@ -16,6 +16,9 @@ public class HandleAttacks : MonoBehaviour
     public GameObject imposterHandler;
     public void Start()
     {
+
+        GetRandAttack();
+
         if (hasPeasant) 
         {
             peasantHandler.GetComponent<HandlePeasant>().HandlePeasants();
@@ -38,5 +41,43 @@ public class HandleAttacks : MonoBehaviour
         }
         
     }
+    public void GetRandAttack()
+    {
+        if (Random.Range(0, 2) == 1)
+        {
+            hasPeasant = true;
+        }
+        else 
+        { 
+            hasPeasant = false;
+        }
 
+        if (Random.Range(0, 2) == 1)
+        {
+            hasImposter = true;
+        }
+        else
+        {
+            hasImposter = false;
+        }
+
+        if (Random.Range(0, 2) == 1)
+        {
+            hasThief = true;
+        }
+        else
+        {
+            hasThief = false;
+        }
+
+
+        if (Random.Range(0, 2) == 1)
+        {
+            hasTrickster= true;
+        }
+        else
+        {
+            hasTrickster = false;
+        }
+    }
 }

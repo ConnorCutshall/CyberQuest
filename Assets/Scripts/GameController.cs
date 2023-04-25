@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject gameOverUI;
+
     public void GameOver() 
     {
         gameOverUI.transform.parent.gameObject.SetActive(true);

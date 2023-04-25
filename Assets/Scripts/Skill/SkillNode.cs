@@ -28,7 +28,7 @@ public class SkillNode : MonoBehaviour
     //public Color unlockedColor;
     //public Color lockedColor;
 
-    public enum NodeType {VPN, FireWall }
+    public enum NodeType {VPN, FireWall, Encryption, Education, TwoFactor}
 
     public void Start()
     {
@@ -43,6 +43,15 @@ public class SkillNode : MonoBehaviour
                 break;
             case NodeType.FireWall:
                 level = upgradeData.FireWallLevel;
+                break;
+            case NodeType.Encryption:
+                level = upgradeData.EncrytpionLevel;
+                break;
+            case NodeType.TwoFactor:
+                level = upgradeData.TwoFactorLevel;
+                break;
+            case NodeType.Education:
+                level = upgradeData.EducationLevel;
                 break;
         }
 
@@ -104,7 +113,17 @@ public class SkillNode : MonoBehaviour
             case NodeType.FireWall:
                 upgradeData.FireWallLevel = level;
                 break;
+            case NodeType.Encryption:
+                upgradeData.EncrytpionLevel = level;
+                break;
+            case NodeType.TwoFactor:
+                upgradeData.TwoFactorLevel = level;
+                break;
+            case NodeType.Education:
+                upgradeData.EducationLevel = level;
+                break;
         }
+
 
     }
     void buttonPush() 

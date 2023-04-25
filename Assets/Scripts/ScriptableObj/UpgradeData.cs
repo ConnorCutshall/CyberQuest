@@ -9,4 +9,7 @@ public class UpgradeData : ScriptableObject
 
     public int FireWallLevel;
     public int VPNLevel;
+    public int EducationLevel;
+    public int EncrytpionLevel;
+    public int TwoFactorLevel;
 }
