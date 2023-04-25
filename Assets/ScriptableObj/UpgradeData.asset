@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745db120945e8cd4c8d78b593c9a86a9, type: 3}
   m_Name: UpgradeData
   m_EditorClassIdentifier: 
-  playerMoney: 800
-  FireWallLevel: 1
-  VPNLevel: 1
-  EducationLevel: 1
-  EncrytpionLevel: 1
-  TwoFactorLevel: 1
+  playerMoney: 1000
+  FireWallLevel: 0
+  VPNLevel: 0
+  EducationLevel: 0
+  EncrytpionLevel: 0
+  TwoFactorLevel: 0
