@@ -34834,7 +34834,7 @@ MonoBehaviour:
   gameStateData: {fileID: 11400000, guid: 732b2d2e6285c8748806c28388e20d0a, type: 2}
   roundTime: 0
   seconds: 0
-  secondsPerRound: 10
+  secondsPerRound: 20
   allUnlocked: 0
 --- !u!1001 &1777616856
 PrefabInstance:

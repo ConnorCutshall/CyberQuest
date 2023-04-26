@@ -15,16 +15,16 @@ public class Peasant : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fire Wall")) 
         {
-            TakeDamage(maxHealth);
+            TakeDamage(maxHealth * 10);
         }
         if (collision.gameObject.CompareTag("Castle"))
         {
             StealCastleData(collision);
-            TakeDamage(maxHealth * 2);
+            TakeDamage(maxHealth * 10);
         }
         if (collision.gameObject.CompareTag("VPN"))
         {
-            TakeDamage(maxHealth/2);
+            TakeDamage(maxHealth * 10);
         }
 
     }

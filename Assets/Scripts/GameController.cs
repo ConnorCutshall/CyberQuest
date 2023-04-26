@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
             gameStateData.roundNum++;
             HandleRound(gameStateData.roundNum);
             handleAttacks.GetComponent<HandleAttacks>().Attacks(gameStateData.roundNum);
+            upgradeData.playerMoney += 150;
         }
     }
     public void HandleRound(int i)
