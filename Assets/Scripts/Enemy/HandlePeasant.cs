@@ -26,6 +26,7 @@ public class HandlePeasant : MonoBehaviour
     public GameObject FakeCastleSE;
     public GameObject FakeCastleNE;
     public GameObject FakeCastleNW;
+    public UpgradeData upgradeData;
     public void HandlePeasants()
     {
         //spawn north
@@ -80,7 +81,7 @@ public class HandlePeasant : MonoBehaviour
     }
     public void HandleAltUpgrades(GameObject CurrPeasant, int dirIndex) 
     {
-        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        if (Random.Range(0, 100) < 30 * upgradeData.VPNLevel)
         {
             CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(dirIndex);
         }
@@ -89,7 +90,7 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.GetComponent<AIDestinationSetter>().target = castleNode.transform;
         }
 
-        if (Upgrades.GetComponent<HandleUpgrades>().hasEducation) 
+        if (upgradeData.EducationLevel > 0) 
         { 
             Upgrades.GetComponent<HandleUpgrades>().Education.GetComponent<HandleGuard>().enemeyList.Add(CurrPeasant);
         }

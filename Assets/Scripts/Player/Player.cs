@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     public GameObject cam;
 
+    public int damage = 10000;
+
+    public UpgradeData upgradeData;
     public GameObject UI;
     public bool uiEnabled;
     void Start()
@@ -37,5 +40,27 @@ public class Player : MonoBehaviour
             UI.SetActive(false);
         }
 
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Peasant"))
+        {
+            if (collision.gameObject.GetComponent<Peasant>())
+            {
+                if (collision.gameObject.GetComponent<Peasant>().TakeDamage(damage))
+                {
+                    upgradeData.playerMoney += Random.Range(5, 15);
+                }
+            }
+            else 
+            {
+                if (collision.gameObject.GetComponent<Imposter>().TakeDamage(damage))
+                {
+                    upgradeData.playerMoney += Random.Range(10, 20);
+                }
+            }
+
+            
+        }
     }
 }

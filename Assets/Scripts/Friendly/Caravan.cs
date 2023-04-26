@@ -13,6 +13,8 @@ public class Caravan : MonoBehaviour
     public GameObject ExitPoint;
     public GameObject TrickPoint;
     public GameObject CastlePoint;
+
+    public UpgradeData upgradeData;
     public void Start()
     {
         UpdateTarget();
@@ -20,12 +22,12 @@ public class Caravan : MonoBehaviour
     public void UpdateTarget() 
     {
 
-        if (Upgrades.GetComponent<HandleUpgrades>().hasEncryption)
+        if (upgradeData.EncrytpionLevel > 0)
         {
             this.GetComponent<AIDestinationSetter>().target = PassagePoint.transform;
         }
         else if (Attacks.GetComponent<HandleAttacks>().hasTrickster &&
-                !Upgrades.GetComponent<HandleUpgrades>().hasVPN) 
+                upgradeData.VPNLevel <= 0) 
         {
             this.GetComponent<AIDestinationSetter>().target = TrickPoint.transform;
         }

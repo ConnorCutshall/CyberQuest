@@ -26,8 +26,10 @@ public class Peasant : MonoBehaviour
         {
             TakeDamage(maxHealth/2);
         }
+
     }
-    public void TakeDamage(int damage)
+
+    public bool TakeDamage(int damage)
     {
         int exactDamage = Random.Range(damage - 3, damage + 3);
         if (exactDamage <= 0)
@@ -39,11 +41,20 @@ public class Peasant : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
+            return true;
         }
+        return false;
     }
     public void StealCastleData(Collider2D collision) 
     {
-        collision.gameObject.transform.parent.GetComponent<Castle>().data -= dataDamage;
+        if (collision.gameObject.transform.parent != null)
+        {
+            collision.gameObject.transform.parent.GetComponent<Castle>().data -= dataDamage;
+        }
+        else
+        {
+            collision.gameObject.GetComponent<Castle>().data -= dataDamage;
+        }
     }
 
 }

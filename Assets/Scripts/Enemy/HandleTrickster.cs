@@ -22,12 +22,14 @@ public class HandleTrickster : MonoBehaviour
     public GameObject FakeCastleSE;
     public GameObject FakeCastleNE;
     public GameObject FakeCastleNW;
+
+    public UpgradeData upgradeData;
     public void HandleTricksters()
     {
         GameObject trick1 = Instantiate(tricksterPrefab);
         trick1.transform.position = tricksterStart1.transform.position;
         trick1.transform.parent = this.transform;
-        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        if (upgradeData.VPNLevel > 0)
         {
             trick1.GetComponent<AIDestinationSetter>().target = FakeCastleSW.transform;
         }
@@ -39,7 +41,7 @@ public class HandleTrickster : MonoBehaviour
         trick1 = Instantiate(tricksterPrefab);
         trick1.transform.position = tricksterStart2.transform.position;
         trick1.transform.parent = this.transform;
-        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        if (upgradeData.VPNLevel > 0)
         {
             trick1.GetComponent<AIDestinationSetter>().target = FakeCastleSE.transform;
         }
@@ -52,7 +54,7 @@ public class HandleTrickster : MonoBehaviour
         trick1 = Instantiate(tricksterPrefab);
         trick1.transform.position = tricksterStart3.transform.position;
         trick1.transform.parent = this.transform;
-        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        if (upgradeData.VPNLevel > 0)
         {
             trick1.GetComponent<AIDestinationSetter>().target = FakeCastleNE.transform;
         }
@@ -65,7 +67,7 @@ public class HandleTrickster : MonoBehaviour
         trick1 = Instantiate(tricksterPrefab);
         trick1.transform.position = tricksterStart4.transform.position;
         trick1.transform.parent = this.transform;
-        if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+        if (upgradeData.VPNLevel > 0)
         {
             trick1.GetComponent<AIDestinationSetter>().target = FakeCastleNW.transform;
         }

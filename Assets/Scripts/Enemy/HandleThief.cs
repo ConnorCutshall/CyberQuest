@@ -18,6 +18,8 @@ public class HandleThief : MonoBehaviour
 
     public List<GameObject> spawnLocations;
 
+    public UpgradeData upgradeData;
+
     public void HandleThieves() 
     {
         for (int i = 0; i < spawnLocations.Count; i++) 
@@ -27,7 +29,7 @@ public class HandleThief : MonoBehaviour
             CurrThief.transform.parent = this.transform;
 
             //upgrade exceptions
-            if (Upgrades.GetComponent<HandleUpgrades>().hasVPN)
+            if (upgradeData.VPNLevel > 0)
             {
                 GameObject target = GetRandomCaslte(spawnLocations[i].GetComponent<AmbushInfo>().cardinalDirNum);
                 CurrThief.GetComponent<AIDestinationSetter>().target = target.transform;
@@ -39,7 +41,7 @@ public class HandleThief : MonoBehaviour
                 CurrThief.GetComponent<Thief>().Target = spawnLocations[i].GetComponent<AmbushInfo>().toAmbush;
             }
 
-            if (Upgrades.GetComponent<HandleUpgrades>().hasEducation)
+            if (upgradeData.EducationLevel > 0)
             {
                 Upgrades.GetComponent<HandleUpgrades>().Education.GetComponent<HandleGuard>().enemeyList.Add(CurrThief);
             }

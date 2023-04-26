@@ -28,7 +28,7 @@ public class SkillNode : MonoBehaviour
     //public Color unlockedColor;
     //public Color lockedColor;
 
-    public enum NodeType {VPN, FireWall, Encryption, Education, TwoFactor}
+    public enum NodeType {VPN, FireWall, Encryption, Education, TwoFactor, Segmentation, Backups, Attack, Speed,}
 
     public void Start()
     {
@@ -36,6 +36,17 @@ public class SkillNode : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(buttonPush);
         //update level string text
+
+        UpdateLevel();
+        //push Update
+        pushUpdate();
+    }
+    public void Update()
+    {
+        //button setup was here
+    }
+    public void UpdateLevel() 
+    {
         switch (nodeType)
         {
             case NodeType.VPN:
@@ -53,21 +64,27 @@ public class SkillNode : MonoBehaviour
             case NodeType.Education:
                 level = upgradeData.EducationLevel;
                 break;
+            case NodeType.Segmentation:
+                level = upgradeData.SegmentationLevel;
+                break;
+            case NodeType.Backups:
+                level = upgradeData.BackupLevel;
+                break;
+            case NodeType.Attack:
+                level = upgradeData.PlayerAttackLevel;
+                break;
+            case NodeType.Speed:
+                level = upgradeData.PlayerSpeedLevel;
+                break;
         }
-
-        //push Update
-        pushUpdate();
+        levelText.text = level.ToString();
     }
-    public void Update()
-    {
-        //button setup was here
-    }
-    void pushUpdate() 
+    public void pushUpdate() 
     {
         //update level text
         levelText.text = level.ToString();
         moneyText.text = "$" + upgradeData.playerMoney.ToString();
-        if (level == 10)
+        if (level == 3)
         {
             costText.gameObject.SetActive(false);
         }
@@ -78,13 +95,14 @@ public class SkillNode : MonoBehaviour
 
         if (level == 0) 
         {
-            levelText.gameObject.SetActive(false);
+            levelText.gameObject.SetActive(true);
         }
 
         if (level == 1) 
         {
             levelText.gameObject.SetActive(true);
         }
+
 
         // updates color of node and corresponding lines
         //if (this.isUnlocked)
@@ -122,6 +140,18 @@ public class SkillNode : MonoBehaviour
             case NodeType.Education:
                 upgradeData.EducationLevel = level;
                 break;
+            case NodeType.Segmentation:
+                upgradeData.SegmentationLevel = level;
+                break;
+            case NodeType.Backups:
+                upgradeData.BackupLevel = level;
+                break;
+            case NodeType.Attack:
+                upgradeData.PlayerAttackLevel = level;
+                break;
+            case NodeType.Speed:
+                upgradeData.PlayerSpeedLevel = level;
+                break;
         }
 
 
@@ -139,7 +169,7 @@ public class SkillNode : MonoBehaviour
         }
 
         if (upgradeData.playerMoney >= nextLevelUnlockCost
-            && level < 10) 
+            && level < 3) 
         {
             level++;
             upgradeData.playerMoney -= nextLevelUnlockCost;

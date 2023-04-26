@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   roundNum: 0
-  castleData: 100
+  castleData: 2000

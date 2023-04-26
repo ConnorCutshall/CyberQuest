@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 3557254944194291388}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 117.4377, y: -25.4711}
-  m_SizeDelta: {x: 234.8775, y: 50.9413}
+  m_AnchoredPosition: {x: 148.26355, y: -41.351105}
+  m_SizeDelta: {x: 296.5292, y: 82.7013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6581149604752345877
 CanvasRenderer:
@@ -328,4 +328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataText: {fileID: 9136903289110723321}
+  moneyText: {fileID: 0}
   gamestate: {fileID: 11400000, guid: 732b2d2e6285c8748806c28388e20d0a, type: 2}
+  upgradeData: {fileID: 0}
