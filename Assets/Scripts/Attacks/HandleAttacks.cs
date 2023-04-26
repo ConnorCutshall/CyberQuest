@@ -33,7 +33,7 @@ public class HandleAttacks : MonoBehaviour
         //{
         //    imposterHandler.GetComponent<HandleImposter>().HandleImposters();  
         //}
-        Attacks(0);
+        //Attacks(0);
     }
 
 

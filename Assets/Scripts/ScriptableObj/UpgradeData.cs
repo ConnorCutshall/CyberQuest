@@ -9,7 +9,7 @@ public class UpgradeData : ScriptableObject
 
     //tier 1
     public int EncrytpionLevel = -1;
-    public int FireWallLevel = -1;
+    public int FireWallLevel = 0;
     public int SegmentationLevel = -1;
 
     //tier 2
@@ -22,7 +22,7 @@ public class UpgradeData : ScriptableObject
     public int PlayerAttackLevel = -2;
     public int PlayerSpeedLevel = -2;
 
-    public int[] upgrades = { -1, -1, -1, -2, -2, -2, -2, -2, -2 };
+    public int[] upgrades = { -1, 0, -1, -2, -2, -2, -2, -2, -2 };
 
     //public void Awake()
     //{
