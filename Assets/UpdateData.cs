@@ -7,6 +7,7 @@ public class UpdateData : MonoBehaviour
 {
     public TMP_Text dataText;
     public TMP_Text moneyText;
+    public TMP_Text roundText;
 
     public GameStateData gamestate;
     public UpgradeData upgradeData;
@@ -14,5 +15,6 @@ public class UpdateData : MonoBehaviour
     {
         dataText.text = "Data: " + gamestate.castleData.ToString() + " bytes";
         moneyText.text = "Money: $" + upgradeData.playerMoney.ToString();
+        roundText.text = "Round: " + gamestate.roundNum.ToString();
     }
 }

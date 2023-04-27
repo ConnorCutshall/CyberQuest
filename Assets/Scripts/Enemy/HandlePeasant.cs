@@ -27,6 +27,9 @@ public class HandlePeasant : MonoBehaviour
     public GameObject FakeCastleNE;
     public GameObject FakeCastleNW;
     public UpgradeData upgradeData;
+
+
+    public AttackData attackData;
     public void HandlePeasants()
     {
         //spawn north
@@ -40,7 +43,7 @@ public class HandlePeasant : MonoBehaviour
 
             HandleAltUpgrades(CurrPeasant, 1);
 
-
+            attackData.EnemyList.Add(CurrPeasant);
         }
 
         //spawn east
@@ -53,6 +56,7 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.parent = this.transform;
 
             HandleAltUpgrades(CurrPeasant, 2);
+            attackData.EnemyList.Add(CurrPeasant);
         }
 
         //spawn south
@@ -65,6 +69,7 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.parent = this.transform;
 
             HandleAltUpgrades(CurrPeasant, 3);
+            attackData.EnemyList.Add(CurrPeasant);
         }
 
         // spawn west
@@ -77,6 +82,7 @@ public class HandlePeasant : MonoBehaviour
             CurrPeasant.transform.parent = this.transform;
 
             HandleAltUpgrades(CurrPeasant, 4);
+            attackData.EnemyList.Add(CurrPeasant);
         }
     }
     public void HandleAltUpgrades(GameObject CurrPeasant, int dirIndex) 

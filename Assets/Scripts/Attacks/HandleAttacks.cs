@@ -14,6 +14,8 @@ public class HandleAttacks : MonoBehaviour
     public GameObject thiefHandler;
     public GameObject tricksterHandler;
     public GameObject imposterHandler;
+
+    //public AttackData attackData;
     public void Start()
     {
 

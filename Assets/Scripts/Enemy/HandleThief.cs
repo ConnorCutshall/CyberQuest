@@ -19,6 +19,7 @@ public class HandleThief : MonoBehaviour
     public List<GameObject> spawnLocations;
 
     public UpgradeData upgradeData;
+    public AttackData attackData;
 
     public void HandleThieves() 
     {
@@ -45,7 +46,7 @@ public class HandleThief : MonoBehaviour
             {
                 Upgrades.GetComponent<HandleUpgrades>().Education.GetComponent<HandleGuard>().enemeyList.Add(CurrThief);
             }
-
+            attackData.EnemyList.Add(CurrThief);
         }
     }
     public GameObject GetRandomCaslte(int dirNum)

@@ -6,5 +6,5 @@ using UnityEngine;
 public class GameStateData : ScriptableObject
 {
     public int roundNum;
-    public int castleData;
+    public int castleData = 2000;
 }

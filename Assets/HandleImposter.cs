@@ -12,6 +12,7 @@ public class HandleImposter : MonoBehaviour
     public GameObject imposterPrefab;
     public GameObject upgrades;
     public UpgradeData upgradeData;
+    public AttackData attackData;
 
     public void HandleImposters() 
     {
@@ -23,6 +24,8 @@ public class HandleImposter : MonoBehaviour
             CurrImposter.GetComponent<Imposter>().upgradeData= upgradeData;
             CurrImposter.GetComponent<Imposter>().upgrades = upgrades;
             CurrImposter.GetComponent<AIDestinationSetter>().target = CastleNode.transform;
+
+            attackData.EnemyList.Add(CurrImposter);
         }
     }
 }

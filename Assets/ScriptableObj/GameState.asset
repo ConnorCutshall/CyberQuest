@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b926712d15748448e8b7267a32acca, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  roundNum: 0
-  castleData: 2000
+  roundNum: 8
+  castleData: 1802
