@@ -27,29 +27,17 @@ public class Thief : MonoBehaviour
         if (collision.gameObject.CompareTag("Caravan"))
         {
             StealData(collision);
-            TakeDamage(maxHealth);
+            Destroy(this.gameObject);
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("VPN"))
         {
-            TakeDamage(maxHealth);
-        }
-    }
-    public void TakeDamage(int damage)
-    {
-        int exactDamage = Random.Range(damage - 3, damage + 3);
-        if (exactDamage <= 0)
-        {
-            exactDamage = 1;
-        }
-        this.health -= exactDamage;
-        if (health <= 0)
-        {
             Destroy(this.gameObject);
         }
     }
+
     IEnumerator Wait(int t)
     {
         yield return new WaitForSeconds(t);

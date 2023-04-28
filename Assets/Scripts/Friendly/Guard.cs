@@ -82,16 +82,16 @@ public class Guard : MonoBehaviour
         switch (tag) 
         {
             case "Peasant":
-                collision.gameObject.GetComponent<Peasant>().TakeDamage(damage);
+                Destroy(collision.gameObject);
                 break;
             case "Thief":
-                collision.gameObject.GetComponent<Thief>().TakeDamage(damage);
+                Destroy(collision.gameObject);
                 break;
             case "Trickster":
-                collision.gameObject.GetComponent<Trickster>().TakeDamage(damage);
+                Destroy(collision.gameObject);
                 break;
             case "Imposter":
-                collision.gameObject.GetComponent<Imposter>().TakeDamage(damage);
+                Destroy(collision.gameObject);
                 break;
         }
         

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using static Unity.Collections.Unicode;
 
 public class HandleAttacks : MonoBehaviour
 {
@@ -15,133 +16,63 @@ public class HandleAttacks : MonoBehaviour
     public GameObject tricksterHandler;
     public GameObject imposterHandler;
 
+    public GameStateData gamestate;
+    public AttackData wideAttackData;
+
     //public AttackData attackData;
     public void Start()
     {
-
-        //if (hasPeasant) 
-        //{
-        //    peasantHandler.GetComponent<HandlePeasant>().HandlePeasants();
-        //}        
-        //if (hasThief) 
-        //{
-        //    thiefHandler.GetComponent<HandleThief>().HandleThieves();
-        //}
-        //if (hasTrickster) 
-        //{
-        //    tricksterHandler.GetComponent<HandleTrickster>().HandleTricksters();
-        //}
-        //if (hasImposter)
-        //{
-        //    imposterHandler.GetComponent<HandleImposter>().HandleImposters();  
-        //}
-        //Attacks(0);
+        Attacks(gamestate.roundNum);
     }
-
-
 
     public void Attacks(int round)
     {
-        if (round < 10)
+        int tier = Mathf.Min(((round + 2) / 3), 3); // The tier increases every 3 levels, to a max of 3
+        int attacks = Mathf.Min(((round + 1) / 2), 5); // The number of attacks increases every other level, to a max of 6
+
+        int[] attackData = {0, 0, 0, 0, 0}; // Stores the values for the attacks. 0 unpicked, 1 picked
+
+        // Determines attacks
+        for (int i = 0; i < attacks; i++)
         {
-            int tier = (round + 2) / 3;
-
-            int[] pastAttacks = { -1, -1, -1, -1, 3, 4};
-
-            for (int i = 0; i < tier; i++)
+            int attack = Mathf.Min((Random.Range(0, tier * 2)), 4);
+            if (attackData[attack] == 0)
             {
-                int attack =Random.Range(0, tier * 2);
-                while (contains(pastAttacks, attack))
-                {
-                    attack = Random.Range(0, tier * 2);
-                }
-                pastAttacks[i] = attack;
-                switch (attack)
-                {
-                    case 0:
-                        thiefHandler.GetComponent<HandleThief>().HandleThieves();
-                        break;
-                    case 1:
-                        peasantHandler.GetComponent<HandlePeasant>().HandlePeasants();
-                        break;
-                    case 2:
-                        tricksterHandler.GetComponent<HandleTrickster>().HandleTricksters();
-                        break;
-                    case 3:
-                        // Call Phishing
-                        break;
-                    case 4:
-                        // Call Password
-                        break;
-                    case 5:
-                        imposterHandler.GetComponent<HandleImposter>().HandleImposters();
-                        break;
-                    default:
-                        // Handle default case
-                        break;
-                }
+                attackData[attack] = 1;
+                wideAttackData.pastAttacks[attack] = true;
+            }
+            else
+            {
+                i--;
             }
         }
-        else
+        // Triggers events
+        if (attackData[0] == 1)
         {
-            // Handles post game
-            int tier = round - 6;
-            if (tier > 4)
-            {
-                tier = 4;
-            }
-            int[] pastAttacks = { -1, -1, -1, -1, 3, 4};
-
-            for (int i = 0; i < tier; i++)
-            {
-                int attack = Random.Range(0, 6);
-                while (contains(pastAttacks, attack))
-                {
-                    attack = Random.Range(0, 6);
-                }
-                pastAttacks[i] = attack;
-                switch (attack)
-                {
-                    case 0:
-                        // Call MitM
-                        thiefHandler.GetComponent<HandleThief>().HandleThieves();
-                        break;
-                    case 1:
-                        // Call DoS
-                        peasantHandler.GetComponent<HandlePeasant>().HandlePeasants();
-                        break;
-                    case 2:
-                        // Call DNS
-                        tricksterHandler.GetComponent<HandleTrickster>().HandleTricksters();
-                        break;
-                    case 3:
-                        // Call Phishing
-                        break;
-                    case 4:
-                        // Call Password
-                        break;
-                    case 5:
-                        // Call Drive By
-                        imposterHandler.GetComponent<HandleImposter>().HandleImposters();
-                        break;
-                    default:
-                        // Handle default case
-                        break;
-                }
-            }
+            // MitM
+            thiefHandler.GetComponent<HandleThief>().HandleThieves();
+        }
+        if (attackData[1] == 1)
+        {
+            // DoS
+            peasantHandler.GetComponent<HandlePeasant>().HandlePeasants();
+        }
+        if (attackData[2] == 1)
+        {
+            // DNS Spoofing
+            tricksterHandler.GetComponent<HandleTrickster>().HandleTricksters();
+        }
+        if (attackData[3] == 1)
+        {
+            // Phishing
+        }
+        if (attackData[4] == 1)
+        {
+            // Password Attack
+            imposterHandler.GetComponent<HandleImposter>().HandleImposters();
         }
     }
-    public static bool contains(int[] array, int target)
-    {
-        bool contains = false;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] == target)
-            {
-                contains = true;
-            }
-        }
-        return contains;
-    }
-    
 }
+
+
+

@@ -13,38 +13,22 @@ public class Peasant : MonoBehaviour
     public int dataDamage = 1;
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Fire Wall")) 
+        if (collision.gameObject.CompareTag("Fire Wall") && getsKilled()) 
         {
-            TakeDamage(maxHealth * 10);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.CompareTag("Castle"))
         {
             StealCastleData(collision);
-            TakeDamage(maxHealth * 10);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.CompareTag("VPN"))
         {
-            TakeDamage(maxHealth * 10);
-        }
-
-    }
-
-    public bool TakeDamage(int damage)
-    {
-        int exactDamage = Random.Range(damage - 3, damage + 3);
-        if (exactDamage <= 0)
-        {
-            exactDamage = 1;
-        }
-
-        this.health -= exactDamage;
-        if (health <= 0)
-        {
             Destroy(this.gameObject);
-            return true;
         }
-        return false;
+
     }
+
     public void StealCastleData(Collider2D collision) 
     {
         if (collision.gameObject.transform.parent != null)
@@ -54,6 +38,19 @@ public class Peasant : MonoBehaviour
         else
         {
             collision.gameObject.GetComponent<Castle>().data -= dataDamage;
+        }
+    }
+
+    public static bool getsKilled(int chanceOfDeath = 80)
+    {
+        int roll = Random.Range(0, 100) + 1;
+        if(roll < chanceOfDeath)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

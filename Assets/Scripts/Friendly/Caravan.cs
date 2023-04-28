@@ -22,7 +22,7 @@ public class Caravan : MonoBehaviour
     public void UpdateTarget() 
     {
 
-        if (upgradeData.EncrytpionLevel > 0)
+        if (upgradeData.EncryptionLevel > 0)
         {
             this.GetComponent<AIDestinationSetter>().target = PassagePoint.transform;
         }

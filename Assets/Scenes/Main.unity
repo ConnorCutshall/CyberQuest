@@ -29506,7 +29506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a8f488736a002489fe1590588c679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasPeasant: 0
+  hasPeasant: 1
   hasThief: 0
   hasTrickster: 0
   hasImposter: 0
@@ -29514,6 +29514,8 @@ MonoBehaviour:
   thiefHandler: {fileID: 596778016}
   tricksterHandler: {fileID: 1710687256}
   imposterHandler: {fileID: 1085059301}
+  gamestate: {fileID: 11400000, guid: 732b2d2e6285c8748806c28388e20d0a, type: 2}
+  wideAttackData: {fileID: 11400000, guid: 07d689bb9d091d94d80135b234b976eb, type: 2}
 --- !u!4 &1346452766
 Transform:
   m_ObjectHideFlags: 0

@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745db120945e8cd4c8d78b593c9a86a9, type: 3}
   m_Name: UpgradeData
   m_EditorClassIdentifier: 
-  playerMoney: 869
-  EncrytpionLevel: 0
-  FireWallLevel: 0
-  SegmentationLevel: 0
-  VPNLevel: 0
-  TwoFactorLevel: 0
-  BackupLevel: 0
-  EducationLevel: 0
-  PlayerAttackLevel: 0
-  PlayerSpeedLevel: 0
-  upgrades: 000000000000000000000000000000000000000000000000000000000000000000000000
+  playerMoney: 1150
+  EncryptionLevel: 1
+  FireWallLevel: 1
+  SegmentationLevel: 1
+  VPNLevel: 1
+  TwoFactorLevel: 1
+  BackupLevel: 1
+  EducationLevel: 1
+  upgrades: 01000000010000000100000001000000010000000100000001000000

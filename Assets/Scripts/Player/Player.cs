@@ -20,15 +20,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("q"))
-        {
-            //cam.GetComponent<CinemachineVirtualCamera>();
-        }
-        else 
-        { 
-
-        }
-
         if (Input.GetKeyDown("e") && !uiEnabled)
         {
             uiEnabled = true;
@@ -43,24 +34,9 @@ public class Player : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Peasant"))
+        if (collision.CompareTag("Peasant") || collision.CompareTag("Thief") || collision.CompareTag("Trickster"))
         {
-            if (collision.gameObject.GetComponent<Peasant>())
-            {
-                if (collision.gameObject.GetComponent<Peasant>().TakeDamage(damage))
-                {
-                    upgradeData.playerMoney += Random.Range(5, 15);
-                }
-            }
-            else 
-            {
-                if (collision.gameObject.GetComponent<Imposter>().TakeDamage(damage))
-                {
-                    upgradeData.playerMoney += Random.Range(10, 20);
-                }
-            }
-
-            
+            Destroy(collision.gameObject);
         }
     }
 }

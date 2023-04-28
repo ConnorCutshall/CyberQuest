@@ -30,7 +30,7 @@ public class HandleThief : MonoBehaviour
             CurrThief.transform.parent = this.transform;
 
             //upgrade exceptions
-            if (upgradeData.VPNLevel > 0)
+            if (upgradeData.VPNLevel > 0 && getsKilled(50))
             {
                 GameObject target = GetRandomCaslte(spawnLocations[i].GetComponent<AmbushInfo>().cardinalDirNum);
                 CurrThief.GetComponent<AIDestinationSetter>().target = target.transform;
@@ -101,5 +101,18 @@ public class HandleThief : MonoBehaviour
         }
 
         return castleNode;
+    }
+
+    public static bool getsKilled(int chanceOfDeath = 80)
+    {
+        int roll = Random.Range(0, 100) + 1;
+        if (roll < chanceOfDeath)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

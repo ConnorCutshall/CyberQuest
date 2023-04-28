@@ -6,4 +6,5 @@ using UnityEngine;
 public class AttackData : ScriptableObject
 {
     public List<GameObject> EnemyList;
+    public bool[] pastAttacks = { false, false, false, false, false };
 }

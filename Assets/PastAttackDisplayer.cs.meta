@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: de49fd9603a883e499b09acfcd4b2f66
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wideAttackData: {fileID: 11400000, guid: 07d689bb9d091d94d80135b234b976eb, type: 2}
+  - mitmPast: {instanceID: 0}
+  - dosPast: {instanceID: 0}
+  - dnsPast: {instanceID: 0}
+  - phishingPast: {instanceID: 0}
+  - passwordPast: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

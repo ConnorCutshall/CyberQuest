@@ -23,7 +23,7 @@ public class HandleUpgrades : MonoBehaviour
         {
             hasVPN = true;
         }
-        if (upgradeData.EncrytpionLevel > 0)
+        if (upgradeData.EncryptionLevel > 0)
         {
             hasEncryption= true;
         }

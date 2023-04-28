@@ -9,28 +9,26 @@ public class Trickster : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Fire Wall"))
+        if (collision.gameObject.CompareTag("Fire Wall") && getsKilled())
         {
-            TakeDamage(maxHealth / 2);
+            Destroy(this.gameObject);
         }
         if (collision.gameObject.CompareTag("VPN"))
         {
-            TakeDamage(maxHealth / 2);
+            Destroy(this.gameObject);
         }
     }
 
-    public void TakeDamage(int damage)
+    public static bool getsKilled(int chanceOfDeath = 80)
     {
-        int exactDamage = Random.Range(damage - 3, damage + 3);
-        if (exactDamage <= 0)
+        int roll = Random.Range(0, 100) + 1;
+        if (roll < chanceOfDeath)
         {
-            exactDamage = 1;
+            return true;
         }
-
-        this.health -= exactDamage;
-        if (health <= 0)
+        else
         {
-            Destroy(this.gameObject);
+            return false;
         }
     }
 }

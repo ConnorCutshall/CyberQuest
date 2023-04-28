@@ -8,21 +8,19 @@ public class UpgradeData : ScriptableObject
     public int playerMoney = 100;
 
     //tier 1
-    public int EncrytpionLevel = -1;
-    public int FireWallLevel = 0;
+    public int EncryptionLevel = -1;
+    public int FireWallLevel = -1;
     public int SegmentationLevel = -1;
 
     //tier 2
-    public int VPNLevel = -2;
-    public int TwoFactorLevel = -2;
-    public int BackupLevel = -2;
+    public int VPNLevel = -1;
+    public int TwoFactorLevel = -1;
+    public int BackupLevel = -1;
 
     //tier 3
-    public int EducationLevel = -2;
-    public int PlayerAttackLevel = -2;
-    public int PlayerSpeedLevel = -2;
+    public int EducationLevel = -1;
 
-    public int[] upgrades = { -1, 0, -1, -2, -2, -2, -2, -2, -2 };
+    public int[] upgrades = {-1, -1, -1, -1, -1, -1, -1};
 
     //public void Awake()
     //{

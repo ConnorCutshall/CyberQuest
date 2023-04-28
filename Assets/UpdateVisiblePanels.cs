@@ -4,99 +4,84 @@ using UnityEngine;
 
 public class UpdateVisiblePanels : MonoBehaviour
 {
-    public GameObject Encryption;
-    public GameObject FireWall;
-    public GameObject Segmentation;
+    public GameObject EncryptionPast;
+    public GameObject FireWallPast;
+    public GameObject SegmentationPast;
 
-    public GameObject VPN;
-    public GameObject TwoFactor;
-    public GameObject Backups;
+    public GameObject VPNPast;
+    public GameObject TwoFactorPast;
+    public GameObject BackupsPast;
 
-    public GameObject Education;
-    public GameObject Attack;
-    public GameObject Speed;
+    public GameObject EducationPast;
+
 
     public UpgradeData upgradeData;
 
     // Update is called once per frame
     void Update()
     {
-        if (upgradeData.EncrytpionLevel > -1) {
-            Encryption.SetActive(true);
-            Encryption.GetComponent<SkillNode>().UpdateLevel();
-        }else { 
-            Encryption.SetActive(false);
+        if (upgradeData.EncryptionLevel > 0) {
+            EncryptionPast.SetActive(true);
+            //Encryption.GetComponent<SkillNode>().UpdateLevel();
+        }else {
+            EncryptionPast.SetActive(false);
         }
 
 
-        if (upgradeData.FireWallLevel > -1){
-            FireWall.SetActive(true);
-            FireWall.GetComponent<SkillNode>().UpdateLevel();
-        }
-        else{
-            FireWall.SetActive(false);
-        }
-
-
-        if (upgradeData.SegmentationLevel > -1){
-            Segmentation.SetActive(true);
-            Segmentation.GetComponent<SkillNode>().UpdateLevel();
+        if (upgradeData.FireWallLevel > 0){
+            FireWallPast.SetActive(true);
+            //FireWall.GetComponent<SkillNode>().UpdateLevel();
         }
         else{
-            Segmentation.SetActive(false);
+            FireWallPast.SetActive(false);
         }
 
 
-        if (upgradeData.VPNLevel > -1){
-            VPN.SetActive(true);
-            VPN.GetComponent<SkillNode>().UpdateLevel();
-        }
-        else{
-            VPN.SetActive(false);
-        }
-
-
-        if (upgradeData.TwoFactorLevel > -1){
-            TwoFactor.SetActive(true);
-            TwoFactor.GetComponent<SkillNode>().UpdateLevel();
+        if (upgradeData.SegmentationLevel > 0){
+            SegmentationPast.SetActive(true);
+            //Segmentation.GetComponent<SkillNode>().UpdateLevel();
         }
         else{
-            TwoFactor.SetActive(false);
+            SegmentationPast.SetActive(false);
         }
 
-        if (upgradeData.BackupLevel > -1)
+
+        if (upgradeData.VPNLevel > 0){
+            VPNPast.SetActive(true);
+            //VPN.GetComponent<SkillNode>().UpdateLevel();
+        }
+        else{
+            VPNPast.SetActive(false);
+        }
+
+
+        if (upgradeData.TwoFactorLevel > 0){
+            TwoFactorPast.SetActive(true);
+            //TwoFactor.GetComponent<SkillNode>().UpdateLevel();
+        }
+        else{
+            TwoFactorPast.SetActive(false);
+        }
+
+        if (upgradeData.BackupLevel > 0)
         {
-            Backups.SetActive(true);
-            Backups.GetComponent<SkillNode>().UpdateLevel();
+            BackupsPast.SetActive(true);
+            //Backups.GetComponent<SkillNode>().UpdateLevel();
         }else{
-            Backups.SetActive(false);
+            BackupsPast.SetActive(false);
         }
 
-        if (upgradeData.EducationLevel > -1){
-            Education.SetActive(true);
-            Education.GetComponent<SkillNode>().UpdateLevel();
+        if (upgradeData.EducationLevel > 0){
+            EducationPast.SetActive(true);
+            //Education.GetComponent<SkillNode>().UpdateLevel();
         }
         else{
-            Education.SetActive(false);
+            EducationPast.SetActive(false);
         }
 
 
-        if (upgradeData.PlayerAttackLevel > -1){
-            Attack.SetActive(true);
-            Attack.GetComponent<SkillNode>().UpdateLevel();
-        }
-        else{
-            Attack.SetActive(false);
-        }
 
 
-        if (upgradeData.PlayerSpeedLevel > -1)
-        {
-            Speed.SetActive(true);
-            Speed.GetComponent<SkillNode>().UpdateLevel();
-        }
-        else{
-            Speed.SetActive(false);
-        }
+
     }
 }

@@ -87,7 +87,7 @@ public class HandlePeasant : MonoBehaviour
     }
     public void HandleAltUpgrades(GameObject CurrPeasant, int dirIndex) 
     {
-        if (Random.Range(0, 100) < 30 * upgradeData.VPNLevel)
+        if (upgradeData.VPNLevel > 0 && getsKilled(50))
         {
             CurrPeasant.GetComponent<AIDestinationSetter>().target = GetRandomCaslte(dirIndex);
         }
@@ -153,5 +153,19 @@ public class HandlePeasant : MonoBehaviour
         }
 
         return castleNode.transform;
+    }
+
+
+    public static bool getsKilled(int chanceOfDeath = 80)
+    {
+        int roll = Random.Range(0, 100) + 1;
+        if (roll < chanceOfDeath)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

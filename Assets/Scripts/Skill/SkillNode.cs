@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class SkillNode : MonoBehaviour
 {
     public string skillName;
-    public List<GameObject> nextSkills;
     //public List<GameObject> lines;
-    public SkillNode prevSkill;
 
     public UpgradeData upgradeData;
 
@@ -28,23 +26,18 @@ public class SkillNode : MonoBehaviour
     //public Color unlockedColor;
     //public Color lockedColor;
 
-    public enum NodeType {VPN, FireWall, Encryption, Education, TwoFactor, Segmentation, Backups, Attack, Speed,}
+    public enum NodeType {VPN, FireWall, Encryption, Education, TwoFactor, Segmentation, Backups,}
 
     public void Start()
     {
+        //UpdateLevel();
+
         //setup button
         button = GetComponent<Button>();
         button.onClick.AddListener(buttonPush);
         //update level string text
+    }
 
-        UpdateLevel();
-        //push Update
-        pushUpdate();
-    }
-    public void Update()
-    {
-        //button setup was here
-    }
     public void UpdateLevel() 
     {
         switch (nodeType)
@@ -56,7 +49,7 @@ public class SkillNode : MonoBehaviour
                 level = upgradeData.FireWallLevel;
                 break;
             case NodeType.Encryption:
-                level = upgradeData.EncrytpionLevel;
+                level = upgradeData.EncryptionLevel;
                 break;
             case NodeType.TwoFactor:
                 level = upgradeData.TwoFactorLevel;
@@ -70,111 +63,54 @@ public class SkillNode : MonoBehaviour
             case NodeType.Backups:
                 level = upgradeData.BackupLevel;
                 break;
-            case NodeType.Attack:
-                level = upgradeData.PlayerAttackLevel;
-                break;
-            case NodeType.Speed:
-                level = upgradeData.PlayerSpeedLevel;
-                break;
         }
-        levelText.text = level.ToString();
     }
     public void pushUpdate() 
     {
-        //update level text
-        levelText.text = level.ToString();
-        moneyText.text = "$" + upgradeData.playerMoney.ToString();
-        if (level == 3)
+        GameObject obj=  this.gameObject.transform.parent.gameObject;
+
+        for (int i = 0; i < obj.transform.childCount; i++) 
         {
-            costText.gameObject.SetActive(false);
-        }
-        else 
-        {
-            costText.text = "$" + nextLevelUnlockCost;
+            obj.transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        if (level == 0) 
-        {
-            levelText.gameObject.SetActive(true);
-        }
-
-        if (level == 1) 
-        {
-            levelText.gameObject.SetActive(true);
-        }
-
-
-        // updates color of node and corresponding lines
-        //if (this.isUnlocked)
-        //{
-        //    this.GetComponent<Image>().color = unlockedColor;
-        //    foreach (GameObject line in lines) 
-        //    {
-        //        line.GetComponent<Image>().color = unlockedColor;
-        //    }
-        //}
-        //else 
-        //{
-        //    this.GetComponent<Image>().color = lockedColor;
-        //    foreach (GameObject line in lines)
-        //    {
-        //        line.GetComponent<Image>().color = lockedColor;
-        //    }
-        //}
-
-        //updates inormation in sriptable object
         switch (nodeType)
         {
             case NodeType.VPN:
-                upgradeData.VPNLevel = level;
+                upgradeData.VPNLevel = 1;
+                upgradeData.upgrades[3] = 1;
                 break;
             case NodeType.FireWall:
-                upgradeData.FireWallLevel = level;
+                upgradeData.FireWallLevel = 1;
+                upgradeData.upgrades[1] = 1;
                 break;
             case NodeType.Encryption:
-                upgradeData.EncrytpionLevel = level;
+                upgradeData.EncryptionLevel = 1;
+                upgradeData.upgrades[0] = 1;
                 break;
             case NodeType.TwoFactor:
-                upgradeData.TwoFactorLevel = level;
+                upgradeData.TwoFactorLevel = 1;
+                upgradeData.upgrades[4] = 1;
                 break;
             case NodeType.Education:
-                upgradeData.EducationLevel = level;
+                upgradeData.EducationLevel = 1;
+                upgradeData.upgrades[6] = 1;
                 break;
             case NodeType.Segmentation:
-                upgradeData.SegmentationLevel = level;
+                upgradeData.SegmentationLevel = 1;
+                upgradeData.upgrades[2] = 1;
                 break;
             case NodeType.Backups:
-                upgradeData.BackupLevel = level;
+                upgradeData.BackupLevel = 1;
+                upgradeData.upgrades[5] = 1;
                 break;
-            case NodeType.Attack:
-                upgradeData.PlayerAttackLevel = level;
-                break;
-            case NodeType.Speed:
-                upgradeData.PlayerSpeedLevel = level;
-                break;
+
         }
 
 
     }
     void buttonPush() 
     {
-        //test to see if the node can be unlocked
-        if (!isUnlocked && canUnlock) 
-        {
-            isUnlocked = true;
-            foreach (GameObject skill in nextSkills) 
-            {
-                skill.GetComponent<SkillNode>().canUnlock = true;
-            }
-        }
-
-        if (upgradeData.playerMoney >= nextLevelUnlockCost
-            && level < 3) 
-        {
-            level++;
-            upgradeData.playerMoney -= nextLevelUnlockCost;
-            nextLevelUnlockCost += 50;
-        }
         pushUpdate();
     }
 }

@@ -24,28 +24,12 @@ public class Imposter : MonoBehaviour
         if (collision.gameObject.CompareTag("Castle"))
         {
             StealCastleData(collision);
-            TakeDamage(maxHealth * 2);
+            Destroy(this.gameObject);
         }
-        if (collision.gameObject.CompareTag("Bridge"))
-        {
-            TakeDamage(maxHealth * 2);
-        }
-    }
-    public bool TakeDamage(int damage)
-    {
-        int exactDamage = Random.Range(damage - 3, damage + 3);
-        if (exactDamage <= 0)
-        {
-            exactDamage = 1;
-        }
-
-        this.health -= exactDamage;
-        if (health <= 0)
+        if (collision.gameObject.CompareTag("Bridge") && getsKilled())
         {
             Destroy(this.gameObject);
-            return true;
         }
-        return false;
     }
     public void StealCastleData(Collider2D collision)
     {
@@ -56,6 +40,19 @@ public class Imposter : MonoBehaviour
         else      
         {
             collision.gameObject.GetComponent<Castle>().data -= dataDamage;
+        }
+    }
+
+    public static bool getsKilled(int chanceOfDeath = 80)
+    {
+        int roll = Random.Range(0, 100) + 1;
+        if (roll < chanceOfDeath)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
