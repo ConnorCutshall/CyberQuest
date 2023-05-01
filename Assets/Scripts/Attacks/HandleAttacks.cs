@@ -15,6 +15,7 @@ public class HandleAttacks : MonoBehaviour
     public GameObject thiefHandler;
     public GameObject tricksterHandler;
     public GameObject imposterHandler;
+    public GameObject robotHandler;
 
     public GameStateData gamestate;
     public AttackData wideAttackData;
@@ -65,6 +66,7 @@ public class HandleAttacks : MonoBehaviour
         if (attackData[3] == 1)
         {
             // Phishing
+            robotHandler.GetComponent<HandleRobot>().HandleRobots();
         }
         if (attackData[4] == 1)
         {
